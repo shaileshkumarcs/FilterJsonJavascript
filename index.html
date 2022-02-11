@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello</h1>
+        <input class="form-control" onkeyup="handleSearchFilter(this)" type="text" name="searchbox" id="searchBox">
+        <div class="">
+            <ul id="ListData">
+                <li>Hello</li>
+                <li>Test</li>
+            </ul>
+        </div>
+    </div>
+    
+</body>
+<script>
+var data = {
+   "23":{
+      "region_name":"Audi Region",
+      "brandId":94,
+      "regionId":23,
+      "id":23
+   },
+   "27":{
+      "region_name":"Region 1",
+      "brandId":94,
+      "regionId":27,
+      "id":27
+   },
+   "29":{
+      "region_name":"alaska updateh",
+      "brandId":94,
+      "regionId":29,
+      "id":29
+   },
+   "41":{
+      "region_name":"Audi region 2",
+      "brandId":94,
+      "regionId":41,
+      "id":41
+   },
+   "53":{
+      "region_name":"Asia",
+      "brandId":97,
+      "regionId":53,
+      "id":53
+   },
+   "55":{
+      "region_name":"<h1>htmltags region<h1> ?",
+      "brandId":124,
+      "regionId":55,
+      "id":55
+   },
+   "57":{
+      "region_name":"<h1>tags region<\/h2>Not ?",
+      "brandId":124,
+      "regionId":57,
+      "id":57
+   },
+   "59":{
+      "region_name":"\u65e5\u672c\u5730\u57df",
+      "brandId":125,
+      "regionId":59,
+      "id":59
+   },
+   "69":{
+      "region_name":"Default Region",
+      "brandId":121,
+      "regionId":69,
+      "id":69
+   },
+   "71":{
+      "region_name":"Default Region",
+      "brandId":124,
+      "regionId":71,
+      "id":71
+   },
+   "72":{
+      "region_name":"Default Region",
+      "brandId":121,
+      "regionId":72,
+      "id":72
+   },
+   "73":{
+      "region_name":"Default Region",
+      "brandId":124,
+      "regionId":73,
+      "id":73
+   },
+   "76":{
+      "region_name":"Audi Global",
+      "brandId":94,
+      "regionId":76,
+      "id":76
+   },
+   "77":{
+      "region_name":"BMW India",
+      "brandId":118,
+      "regionId":77,
+      "id":77
+   },
+   "78":{
+      "region_name":"India region",
+      "brandId":134,
+      "regionId":78,
+      "id":78
+   },
+   "89":{
+      "region_name":"card region",
+      "brandId":167,
+      "regionId":89,
+      "id":89
+   },
+   "91":{
+      "region_name":"Fashion region",
+      "brandId":169,
+      "regionId":91,
+      "id":91
+   },
+   "93":{
+      "region_name":"localization",
+      "brandId":171,
+      "regionId":93,
+      "id":93
+   },
+   "95":{
+      "region_name":"localization",
+      "brandId":171,
+      "regionId":95,
+      "id":95
+   },
+   "97":{
+      "region_name":"Default Region",
+      "brandId":171,
+      "regionId":97,
+      "id":97
+   },
+   "99":{
+      "region_name":"Default Region",
+      "brandId":173,
+      "regionId":99,
+      "id":99
+   },
+   "101":{
+      "region_name":"bike regions",
+      "brandId":175,
+      "regionId":101,
+      "id":101
+   },
+   "105":{
+      "region_name":"update region",
+      "brandId":179,
+      "regionId":105,
+      "id":105
+   },
+   "112":{
+      "region_name":"TS update regionu",
+      "brandId":205,
+      "regionId":112,
+      "id":112
+   },
+   "118":{
+      "region_name":"New Region Test",
+      "brandId":161,
+      "regionId":118,
+      "id":118
+   },
+   "121":{
+      "region_name":"New Region Created",
+      "brandId":94,
+      "regionId":121,
+      "id":121
+   },
+   "124":{
+      "region_name":"New Region updated 123456",
+      "brandId":161,
+      "regionId":124,
+      "id":124
+   },
+   "127":{
+      "region_name":"V Region",
+      "brandId":217,
+      "regionId":127,
+      "id":127
+   },
+   "130":{
+      "region_name":"A region",
+      "brandId":173,
+      "regionId":130,
+      "id":130
+   },
+   "133":{
+      "region_name":"Card Region",
+      "brandId":167,
+      "regionId":133,
+      "id":133
+   },
+   "136":{
+      "region_name":"Audit logs region",
+      "brandId":208,
+      "regionId":136,
+      "id":136
+   },
+   "141":{
+      "region_name":"Mobiles region",
+      "brandId":234,
+      "regionId":141,
+      "id":141
+   },
+   "142":{
+      "region_name":"test region",
+      "brandId":124,
+      "regionId":142,
+      "id":142
+   },
+   "145":{
+      "region_name":"test region",
+      "brandId":124,
+      "regionId":145,
+      "id":145
+   },
+   "147":{
+      "region_name":"japanese region",
+      "brandId":252,
+      "regionId":147,
+      "id":147
+   },
+   "150":{
+      "region_name":"Activity logs region",
+      "brandId":255,
+      "regionId":150,
+      "id":150
+   },
+   "161":{
+      "region_name":"Use Default Region",
+      "brandId":223,
+      "regionId":161,
+      "id":161
+   },
+   "173":{
+      "region_name":"Use Default Region",
+      "brandId":272,
+      "regionId":173,
+      "id":173
+   },
+   "176":{
+      "region_name":"Use Default Region",
+      "brandId":275,
+      "regionId":176,
+      "id":176
+   },
+   "188":{
+      "region_name":"Use Default Region",
+      "brandId":290,
+      "regionId":188,
+      "id":188
+   },
+   "191":{
+      "region_name":"Use Default Region",
+      "brandId":296,
+      "regionId":191,
+      "id":191
+   },
+   "198":{
+      "region_name":"Delete Region",
+      "brandId":94,
+      "regionId":198,
+      "id":198
+   },
+   "206":{
+      "region_name":"TS_region_01",
+      "brandId":309,
+      "regionId":206,
+      "id":206
+   },
+   "207":{
+      "region_name":"TS_region_02",
+      "brandId":309,
+      "regionId":207,
+      "id":207
+   },
+   "209":{
+      "region_name":"region 1",
+      "brandId":94,
+      "regionId":209,
+      "id":209
+   },
+   "210":{
+      "region_name":"Region 1",
+      "brandId":310,
+      "regionId":210,
+      "id":210
+   },
+   "211":{
+      "region_name":"Region 2",
+      "brandId":310,
+      "regionId":211,
+      "id":211
+   },
+   "212":{
+      "region_name":"Region 1",
+      "brandId":311,
+      "regionId":212,
+      "id":212
+   },
+   "213":{
+      "region_name":"Region 2",
+      "brandId":311,
+      "regionId":213,
+      "id":213
+   },
+   "214":{
+      "region_name":"Region 3",
+      "brandId":311,
+      "regionId":214,
+      "id":214
+   },
+   "236":{
+      "region_name":"Use Default Region",
+      "brandId":333,
+      "regionId":236,
+      "id":236
+   },
+   "237":{
+      "region_name":"Use Default Region",
+      "brandId":124,
+      "regionId":237,
+      "id":237
+   },
+   "238":{
+      "region_name":"Temp Region",
+      "brandId":333,
+      "regionId":238,
+      "id":238
+   },
+   "239":{
+      "region_name":"Temp Region",
+      "brandId":333,
+      "regionId":239,
+      "id":239
+   }
+}
+
+
+$(document).ready(function(){
+    console.log(data);
+    var listList =  Object.keys(data).length
+            ? Object.keys(data).map(
+                (regionId, i) =>
+                ( data[regionId] ? "<li>"+data[regionId].region_name+"</li>" : ""))
+            : "";
+            console.log(listList);
+            $("#ListData").html(listList);
+});
+
+function handleSearchFilter(event){
+  const searchWord = $(event).val();
+  console.log(searchWord);
+  const newFilter = Object.keys(data).reduce((result, key) => {
+    if (data[key].region_name.includes(searchWord)) {
+      result.push(data[key]);
+    };
+    return result;
+  }, []);
+  console.log("newFilter",newFilter);
+  console.log("newFilter",newFilter.length);
+//   setFilterData(newFilter);
+    let person = new Object();
+    newFilter.forEach((data, index)=>{
+        console.log("HHH", data.regionId);
+        data.regionId ? person[data.regionId] = data : "";
+    })
+    console.log(person);
+    var listList =  Object.keys(person).length
+            ? Object.keys(person).map(
+                (regionId, i) =>
+                ( person[regionId] ? "<li>"+person[regionId].region_name+"</li>" : ""))
+            : "";
+            console.log(listList);
+            $("#ListData").html(listList);
+};
+
+</script>
+</html>
